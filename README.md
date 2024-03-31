@@ -1,6 +1,8 @@
-## 1. 项目说明
+## 项目说明
 
-本项目是使用 amis 低代码工具和 tornado + ORM 框架搭建的 web 后台管理项目，使用 json 即可描述前端页面，快速实现增删改查的能力。
+AutoCRUD-Tornado是一个基于 GPT、Tornado 和 PeeWee 的 AI 自动编写 CRUD 代码框架。
+该框架可以帮助开发者快速生成数据库操作的代码，提高开发效率和减少重复工作。
+无需手动编写 CRUD 操作代码，让 AI 来为您完成！欢迎加入我们，一起探索自动化编程的未来！
 
 ### 项目技术栈：
 
@@ -116,3 +118,4 @@ class JsonHandler(RequestHandler):
 ## TODO:
 
 - [ ] 封装数据库迁移记录的能力
+- [ ] GPT直接生成相关文件，不需要再从生产的markdown里复制粘贴

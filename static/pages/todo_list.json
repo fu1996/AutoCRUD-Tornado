@@ -1,0 +1,302 @@
+{
+  "title": "TODO事项管理",
+  "remark": "事项列表",
+  "name": "todo_item_CRUD",
+  "headerToolbar": [
+    {
+      "type": "button",
+      "actionType": "dialog",
+      "label": "新增",
+      "icon": "fa fa-plus pull-left",
+      "primary": true,
+      "dialog": {
+        "title": "新增",
+        "body": {
+          "type": "form",
+          "name": "sample-edit-form",
+          "api": "post:${API_HOST}/api/todo_items",
+          "body": [
+            {
+              "type": "input-text",
+              "name": "title",
+              "label": "标题",
+              "required": true
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "input-text",
+              "name": "description",
+              "label": "描述"
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "checkbox",
+              "name": "completed",
+              "label": "是否完成",
+              "required": true
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "input-text",
+              "name": "user_id",
+              "label": "用户ID",
+              "required": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "body": {
+    "type": "crud",
+    "api": "/api/todo_items",
+    "keepItemSelectionOnPageChange": true,
+    "maxKeepItemSelectionLength": 11,
+    "autoFillHeight": true,
+    "syncLocation": false,
+    "labelTpl": "${id} ${title}",
+    "autoGenerateFilter": true,
+    "placeholder": "暂无数据",
+    "bulkActions": [
+      {
+        "label": "批量删除",
+        "actionType": "ajax",
+        "api": "delete:${API_HOST}/api/todo_items?id=${ids|raw}",
+        "confirmText": "确定要批量删除?"
+      }
+    ],
+    "quickSaveApi": "${API_HOST}/amis/api/sample/bulkUpdate",
+    "quickSaveItemApi": "${API_HOST}/amis/api/sample/$id",
+    "filterTogglable": true,
+    "headerToolbar": [
+      "bulkActions",
+      {
+        "type": "tpl",
+        "tpl": "当前共有 ${count} 个事项",
+        "className": "v-middle"
+      },
+      {
+        "type": "columns-toggler",
+        "align": "right"
+      },
+      {
+        "type": "button",
+        "actionType": "dialog",
+        "label": "新增",
+        "icon": "fa fa-plus pull-left",
+        "primary": true,
+        "align": "right",
+        "dialog": {
+          "title": "新增",
+          "body": {
+            "type": "form",
+            "name": "sample-edit-form",
+            "api": "post:${API_HOST}/api/todo_items",
+            "body": [
+              {
+                "type": "input-text",
+                "name": "title",
+                "label": "标题",
+                "required": true
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "input-text",
+                "name": "description",
+                "label": "描述"
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "checkbox",
+                "name": "completed",
+                "label": "是否完成",
+                "required": true
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "input-text",
+                "name": "user_id",
+                "label": "用户ID",
+                "required": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "footerToolbar": [
+      "statistics",
+      {
+        "type": "pagination",
+        "layout": "perPage,pager,go"
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "label": "ID",
+        "width": 20,
+        "sortable": true,
+        "searchable": {
+          "type": "input-text",
+          "name": "id",
+          "label": "主键",
+          "placeholder": "输入id"
+        },
+        "fixed": "left"
+      },
+      {
+        "name": "title",
+        "label": "标题",
+        "sortable": true,
+        "searchable": {
+          "type": "input-text",
+          "name": "title",
+          "label": "标题",
+          "placeholder": "输入标题",
+          "mode": "horizontal"
+        }
+      },
+      {
+        "name": "description",
+        "label": "描述",
+        "sortable": true
+      },
+      {
+        "name": "completed",
+        "label": "是否完成",
+        "sortable": true
+      },
+      {
+        "name": "user_id",
+        "label": "用户ID",
+        "sortable": true
+      },
+      {
+        "type": "operation",
+        "label": "操作",
+        "width": 100,
+        "buttons": [
+          {
+            "type": "button",
+            "icon": "fa fa-eye",
+            "actionType": "dialog",
+            "tooltip": "查看",
+            "dialog": {
+              "title": "查看",
+              "body": {
+                "type": "form",
+                "submitText": "",
+                "body": [
+                  {
+                    "type": "input-text",
+                    "name": "title",
+                    "label": "标题",
+                    "required": true
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "description",
+                    "label": "描述"
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "completed",
+                    "label": "是否完成",
+                    "required": true
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "user_id",
+                    "label": "用户ID",
+                    "required": true
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "button",
+            "icon": "fa fa-pencil",
+            "tooltip": "编辑",
+            "actionType": "drawer",
+            "drawer": {
+              "position": "right",
+              "size": "lg",
+              "title": "编辑",
+              "body": {
+                "type": "form",
+                "name": "sample-edit-form",
+                "api": "put:${API_HOST}/api/todo_item/$id",
+                "body": [
+                  {
+                    "type": "input-text",
+                    "name": "title",
+                    "label": "标题",
+                    "required": true
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "description",
+                    "label": "描述"
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "checkbox",
+                    "name": "completed",
+                    "label": "是否完成",
+                    "required": true
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "user_id",
+                    "label": "用户ID",
+                    "required": true
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "button",
+            "icon": "fa fa-times text-danger",
+            "actionType": "ajax",
+            "tooltip": "删除",
+            "confirmText": "您确认要删除?",
+            "api": "delete:${API_HOST}/api/todo_item/$id"
+          }
+        ],
+        "toggled": true
+      }
+    ]
+  }
+}

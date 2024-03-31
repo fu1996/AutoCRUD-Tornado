@@ -1,0 +1,52 @@
+{
+  "type": "page",
+  "title": "新增",
+  "remark": null,
+  "toolbar": [
+    {
+      "type": "button",
+      "actionType": "link",
+      "link": "/todo_item/list",
+      "label": "返回列表"
+    }
+  ],
+  "body": {
+    "type": "form",
+    "name": "sample-edit-form",
+    "api": "post:${API_HOST}/api/todo_items",
+    "body": [
+      {
+        "type": "input-text",
+        "name": "title",
+        "label": "标题",
+        "required": true
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "input-text",
+        "name": "description",
+        "label": "描述"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "checkbox",
+        "name": "completed",
+        "label": "是否完成",
+        "required": true
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "input-text",
+        "name": "user_id",
+        "label": "用户ID",
+        "required": true
+      }
+    ]
+  }
+}

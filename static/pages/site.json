@@ -1,0 +1,38 @@
+{
+            "status": 0,
+            "msg": "",
+            "data": {
+                "pages": [
+                    {
+                        "label": "Home",
+                        "url": "/",
+                        "redirect": "/todo/list"
+                    },
+                    {
+                        "label": "TODO管理",
+                        "children": [
+                            {
+                                "label": "TODO管理",
+                                "url": "/todo",
+                                "rewrite": "/todo/list",
+                                "icon": "fa fa-cube",
+                                "children": [
+                                    {
+                                        "label": "TODO列表",
+                                        "url": "/todo/list",
+                                        "icon": "fa fa-list",
+                                        "schemaApi": "get:/static/pages/todo_list.json"
+                                    },
+                                    {
+                                        "label": "新增TODO",
+                                        "url": "/crud/new",
+                                        "icon": "fa fa-plus",
+                                        "schemaApi": "get:/static/pages/todo_new.json"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
